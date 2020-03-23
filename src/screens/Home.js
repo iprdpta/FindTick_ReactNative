@@ -5,32 +5,16 @@ import {
   Content,
   View,
   Header,
-  Title,
-  Left,
-  Right,
-  Item,
-  Input,
   Card,
-  Button,
   Text,
-  CardItem,
-  Body,
   Footer,
-  FooterTab,
-  Subtitle,
-  ListItem,
 } from 'native-base';
 
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {
-  Dimensions,
-  Image,
-  FlatList,
-  ScrollView,
-  TouchableOpacity,
-} from 'react-native';
+import {Dimensions, Image, ScrollView, TouchableOpacity} from 'react-native';
 import Svg, {Circle} from 'react-native-svg';
 
+import Iconx from 'react-native-vector-icons/FontAwesome5';
 import styles from '../styles/style';
 import {Promo, Wisata} from '../components/HorizontalView';
 
@@ -55,7 +39,7 @@ export default class Home extends React.Component {
           </Text>
           {login ? (
             <View style={styles.coinContainer}>
-              <View style={{justifyContent: 'center'}}>
+              <View style={{marginLeft: -20, justifyContent: 'center'}}>
                 <Text style={styles.coinText}>
                   <Image
                     source={require('../assets/coin.png')}
@@ -64,10 +48,9 @@ export default class Home extends React.Component {
                   1.000
                 </Text>
               </View>
-              {/* <Image
-                source={require('../assets/coin.png')}
-                style={styles.coin}
-              /> */}
+              <View style={{marginLeft: 15, justifyContent: 'center'}}>
+                <Iconx name="envelope" color="white" size={20} />
+              </View>
             </View>
           ) : (
             <View>
@@ -145,15 +128,6 @@ export default class Home extends React.Component {
               </TouchableOpacity>
             </View>
             <View style={{padding: 15}}>
-              <Text style={styles.textx}>Promo</Text>
-              <Text style={styles.textxx}>
-                Berbagai promo menarik yang bisa kamu dapatkan
-              </Text>
-            </View>
-            <View>
-              <Promo />
-            </View>
-            <View style={{padding: 15}}>
               <Text style={styles.textx}>Tempat Wisata</Text>
               <Text style={styles.textxx}>
                 Rekomendasi tempat wisata yang wajib kamu kunjungi.
@@ -161,6 +135,15 @@ export default class Home extends React.Component {
             </View>
             <View>
               <Wisata />
+            </View>
+            <View style={{padding: 15}}>
+              <Text style={styles.textx}>Promo</Text>
+              <Text style={styles.textxx}>
+                Berbagai promo menarik yang bisa kamu dapatkan
+              </Text>
+            </View>
+            <View>
+              <Promo />
             </View>
           </ScrollView>
         </Content>
