@@ -27,196 +27,147 @@ import {
   Image,
   FlatList,
   ScrollView,
-  TouchableHighlight,
+  TouchableOpacity,
 } from 'react-native';
 import Svg, {Circle} from 'react-native-svg';
 
 import styles from '../styles/style';
+import {Promo, Wisata} from '../components/HorizontalView';
+
+import Footers from '../components/Footer';
 
 const {height, width} = Dimensions.get('window');
 
-export default class Landing extends React.Component {
+export default class Home extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      login: true,
+    };
+  }
   render() {
+    const {login} = this.state;
     return (
-      <ScrollView>
+      <Container>
         <Header style={styles.header}>
           <Text style={styles.findTick}>
             Find<Text style={styles.tick}>Tick</Text>
           </Text>
-          <Text
-            style={styles.login}
-            onPress={() => this.props.navigation.navigate('Login/Register')}>
-            LOGIN
-          </Text>
+          {login ? (
+            <View style={styles.coinContainer}>
+              <View style={{justifyContent: 'center'}}>
+                <Text style={styles.coinText}>
+                  <Image
+                    source={require('../assets/coin.png')}
+                    style={styles.coin}
+                  />{' '}
+                  1.000
+                </Text>
+              </View>
+              {/* <Image
+                source={require('../assets/coin.png')}
+                style={styles.coin}
+              /> */}
+            </View>
+          ) : (
+            <View>
+              <Text
+                style={styles.login}
+                onPress={() =>
+                  this.props.navigation.navigate('Login/Register')
+                }>
+                LOGIN
+              </Text>
+            </View>
+          )}
         </Header>
-        <Content>
-          <View style={{height: height / 4.5}}>
-            <Svg>
-              <Circle cx={width / 2} cy="-750" r="850" fill="#3066be" />
-            </Svg>
-          </View>
-          <View style={styles.textContainer}>
-            <Text style={styles.text}>Hai Ticket Seeker,</Text>
-            <Text style={styles.text}>Mau kemana kamu hari ini?</Text>
-          </View>
+        <Content showsVerticalScrollIndicator={false}>
+          <ScrollView>
+            <View style={{height: height / 2.5}}>
+              <Svg>
+                <Circle cx="180" cy="-350" r="500" fill="#3066be" />
+                {/* <Circle cx={width / 2} cy="-100" r="1000" fill="#3066be" /> */}
+              </Svg>
+            </View>
+            <View style={styles.textContainer}>
+              <Text style={styles.text}>Hai Ticket Seeker,</Text>
+              <Text style={styles.text}>Mau kemana kamu hari ini?</Text>
+            </View>
 
-          <View
-            style={{
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-            }}>
-            <TouchableHighlight
-              onPress={() => this.props.navigation.navigate('Login/Register')}
-              underlayColor="white">
-              <Card style={styles.menuItem}>
-                <Icon name="train" style={{color: '#3366FF', fontSize: 40}} />
-                <Text style={styles.cardtext}>Kereta</Text>
-              </Card>
-            </TouchableHighlight>
-            <TouchableHighlight
-              onPress={() =>
-                this.props.navigation.navigate('Train', {name: 'Jane'})
-              }
-              underlayColor="white">
-              <Card style={styles.menuItem}>
-                <Icon name="plane" style={{color: '#00AAFF', fontSize: 40}} />
-                <Text style={styles.cardtext}>Pesawat</Text>
-              </Card>
-            </TouchableHighlight>
-            <TouchableHighlight
-              onPress={() =>
-                this.props.navigation.navigate('Train', {name: 'Jane'})
-              }
-              underlayColor="white">
-              <Card style={styles.menuItem}>
-                <Icon name="bus" style={{color: '#00E64D', fontSize: 40}} />
-                <Text style={styles.cardtext}>Bus</Text>
-              </Card>
-            </TouchableHighlight>
-            <TouchableHighlight
-              onPress={() =>
-                this.props.navigation.navigate('Train', {name: 'Jane'})
-              }
-              underlayColor="white">
-              <Card style={styles.menuItem}>
-                <Icon name="car" style={{color: '#FF3333', fontSize: 40}} />
-                <Text style={styles.cardtext}>Sewa Mobil</Text>
-              </Card>
-            </TouchableHighlight>
-            <TouchableHighlight
-              onPress={() =>
-                this.props.navigation.navigate('Train', {name: 'Jane'})
-              }
-              underlayColor="white">
-              <Card style={styles.menuItem}>
-                <Icon name="bed" style={{color: '#000099', fontSize: 40}} />
-                <Text style={styles.cardtext}>Hotel</Text>
-              </Card>
-            </TouchableHighlight>
-            <TouchableHighlight underlayColor="white">
-              <Card style={styles.menuItem}>
-                <Icon
-                  name="ticket-alt"
-                  style={{color: '#FFAA00', fontSize: 40}}
-                />
-                <Text style={styles.cardtext}>Event</Text>
-              </Card>
-            </TouchableHighlight>
-          </View>
-          <View style={{marginLeft: 25, marginTop: 30}}>
-            <Text style={styles.textx}>
-              Rekomendasi Tempat Wisata di Indonesia
-            </Text>
-          </View>
-          <ScrollView horizontal>
-            <TouchableHighlight onPress={() => {}} underlayColor="white">
-              <View>
-                <Card
-                  style={{
-                    width: 200,
-                    height: 150,
-                    marginLeft: 5,
-                    marginRight: 5,
-                    marginBottom: 20,
-                  }}>
+            <View
+              style={{
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+              }}>
+              <TouchableOpacity
+                activeOpacity={0.9}
+                onPress={() => this.props.navigation.navigate('Search')}>
+                <Card style={styles.menuItem}>
                   <Image
-                    source={{
-                      uri:
-                        'https://specials-images.forbesimg.com/imageserve/675172642/960x0.jpg?fit=scale',
-                    }}
-                    style={{flex: 1, resizeMode: 'cover'}}
+                    source={require('../assets/train.png')}
+                    style={styles.cardImages}
                   />
-                  <Text style={styles.textRec}>Bali</Text>
+
+                  <Text style={styles.cardtext}>Kereta</Text>
                 </Card>
-              </View>
-            </TouchableHighlight>
-            <TouchableHighlight onPress={() => {}} underlayColor="white">
-              <View>
-                <Card
-                  style={{
-                    width: 200,
-                    height: 150,
-                    marginLeft: 5,
-                    marginRight: 5,
-                    marginBottom: 20,
-                  }}>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.9}
+                onPress={() => this.props.navigation.navigate('Search')}>
+                <Card style={styles.menuItem}>
                   <Image
-                    source={{
-                      uri:
-                        'https://awsimages.detik.net.id/customthumb/2019/10/16/1025/img_20191016163543_5da6e46f0b34a.jpg?w=600&q=90',
-                    }}
-                    style={{flex: 1, resizeMode: 'cover'}}
+                    source={require('../assets/plane.png')}
+                    style={styles.cardImages}
                   />
-                  <Text style={styles.textRec}>Pulau Seribu</Text>
+                  <Text style={styles.cardtext}>Pesawat</Text>
                 </Card>
-              </View>
-            </TouchableHighlight>
-            <TouchableHighlight onPress={() => {}} underlayColor="white">
-              <View>
-                <Card
-                  style={{
-                    width: 200,
-                    height: 150,
-                    marginLeft: 5,
-                    marginRight: 5,
-                    marginBottom: 20,
-                  }}>
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.9}
+                onPress={() => this.props.navigation.navigate('Search')}>
+                <Card style={styles.menuItem}>
                   <Image
-                    source={{
-                      uri:
-                        'https://anekatempatwisata.com/wp-content/uploads/2014/10/Raja-Ampat.jpg',
-                    }}
-                    style={{flex: 1, resizeMode: 'cover'}}
+                    source={require('../assets/hotel.png')}
+                    style={styles.cardImages}
                   />
-                  <Text style={styles.textRec}>Raja Ampat</Text>
+                  <Text style={styles.cardtext}>Hotel</Text>
                 </Card>
-              </View>
-            </TouchableHighlight>
-            <TouchableHighlight onPress={() => {}} underlayColor="white">
-              <View>
-                <Card
-                  style={{
-                    width: 200,
-                    height: 150,
-                    marginLeft: 5,
-                    marginRight: 5,
-                    marginBottom: 20,
-                  }}>
+              </TouchableOpacity>
+              <TouchableOpacity activeOpacity={0.9}>
+                <Card style={styles.menuItem}>
                   <Image
-                    source={{
-                      uri:
-                        'https://anekatempatwisata.com/wp-content/uploads/2014/10/Pantai-Pink-Pulau-Komodo-300x200.jpg',
-                    }}
-                    style={{flex: 1, resizeMode: 'cover'}}
+                    source={require('../assets/ticket.png')}
+                    style={styles.cardImages}
                   />
-                  <Text style={styles.textRec}>Pulau Komodo</Text>
+                  <Text style={styles.cardtext}>Event</Text>
                 </Card>
-              </View>
-            </TouchableHighlight>
+              </TouchableOpacity>
+            </View>
+            <View style={{padding: 15}}>
+              <Text style={styles.textx}>Promo</Text>
+              <Text style={styles.textxx}>
+                Berbagai promo menarik yang bisa kamu dapatkan
+              </Text>
+            </View>
+            <View>
+              <Promo />
+            </View>
+            <View style={{padding: 15}}>
+              <Text style={styles.textx}>Tempat Wisata</Text>
+              <Text style={styles.textxx}>
+                Rekomendasi tempat wisata yang wajib kamu kunjungi.
+              </Text>
+            </View>
+            <View>
+              <Wisata />
+            </View>
           </ScrollView>
         </Content>
-      </ScrollView>
+        <Footer>
+          <Footers navigation={this.props.navigation} home={true} />
+        </Footer>
+      </Container>
     );
   }
 }

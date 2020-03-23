@@ -16,59 +16,92 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   headerText: {
-    flex: 4,
-    marginTop: 15,
-    marginLeft: 20,
-    fontSize: 20,
-    fontFamily: 'JosefinSans-Regular',
+    flex: 5,
+    marginTop: 19,
+    marginLeft: 10,
+    fontSize: 17,
+    fontFamily: 'Lato-Regular',
     color: 'white',
+    fontWeight: 'bold',
   },
   findTick: {
     flex: 4,
     marginTop: 15,
-    marginLeft: 20,
+    marginLeft: 10,
     fontSize: 20,
     fontWeight: 'bold',
-    fontFamily: 'JosefinSans-Regular',
+    fontFamily: 'Lato-Regular',
     color: 'white',
   },
   login: {
     flex: 1,
     marginTop: 20,
+    marginRight: 10,
+    fontWeight: 'bold',
     fontSize: 15,
-    fontFamily: 'JosefinSans-Regular',
+    fontFamily: 'Lato-Regular',
     color: 'white',
   },
   tick: {
     fontSize: 20,
     fontWeight: 'normal',
-    fontFamily: 'JosefinSans-Regular',
+    fontFamily: 'Lato-Regular',
     color: 'white',
   },
+  coinContainer: {
+    display: 'flex',
+    flex: 1.3,
+    flexDirection: 'row',
+    width: '100%',
+    height: '100%',
+  },
+  coin: {
+    width: 18,
+    height: 18,
+  },
+  coinText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 15,
+    fontFamily: 'Lato-Regular',
+  },
   menuItem: {
-    height: width / 3.5,
-    width: width / 3.5,
+    height: width / 5,
+    width: width / 5,
     borderRadius: 5,
+    marginLeft: 5,
+    marginRight: 5,
     alignItems: 'center',
     justifyContent: 'center',
   },
+  cardImages: {
+    width: 30,
+    height: 30,
+  },
   text: {
     fontSize: 15,
-    fontFamily: 'JosefinSans-Regular',
+    fontFamily: 'Lato-Regular',
+    color: 'white',
   },
   textx: {
+    fontSize: 18,
+    fontFamily: 'Lato-Regular',
+    fontWeight: 'bold',
+  },
+  textxx: {
     fontSize: 15,
-    fontFamily: 'JosefinSans-Regular',
-    marginBottom:20
+    fontFamily: 'Lato-Regular',
+    color: 'grey',
   },
   textContainer: {
-    marginBottom: 10,
-    marginLeft: 20,
+    padding: 15,
+    marginTop: -230,
   },
   cardtext: {
-    fontFamily: 'JosefinSans-Regular',
+    fontFamily: 'Lato-Regular',
     marginTop: 5,
     fontSize: 12,
+    fontWeight: 'bold',
   },
   menuItemx: {
     borderRadius: 5,
@@ -85,7 +118,7 @@ const styles = StyleSheet.create({
 
   loginText: {
     fontSize: 30,
-    fontFamily: 'JosefinSans-Regular',
+    fontFamily: 'Lato-Regular',
     textAlign: 'center',
     marginBottom: 30,
   },
@@ -94,13 +127,13 @@ const styles = StyleSheet.create({
   },
   formInput: {
     fontSize: 15,
-    fontFamily: 'JosefinSans-Regular',
+    fontFamily: 'Lato-Regular',
   },
   formContainer: {
     padding: 50,
   },
   formText: {
-    fontFamily: 'JosefinSans-Regular',
+    fontFamily: 'Lato-Regular',
   },
   formButton: {
     marginTop: 20,
@@ -109,13 +142,13 @@ const styles = StyleSheet.create({
   },
   registerText: {
     fontSize: 15,
-    fontFamily: 'JosefinSans-Regular',
+    fontFamily: 'Lato-Regular',
     textAlign: 'center',
     marginBottom: 50,
   },
   registerTextx: {
     fontSize: 15,
-    fontFamily: 'JosefinSans-Regular',
+    fontFamily: 'Lato-Regular',
     textAlign: 'center',
     color: '#3066be',
   },
@@ -132,7 +165,7 @@ const styles = StyleSheet.create({
   },
 
   cardView: {
-    marginTop: -120,
+    marginTop: -150,
     padding: 25,
   },
   cardItemHeader: {
@@ -148,13 +181,36 @@ const styles = StyleSheet.create({
   userListText: {
     fontSize: 20,
     fontWeight: 'bold',
-    fontFamily: 'JosefinSans-Regular',
+    fontFamily: 'Lato-Regular',
   },
   userListText2: {
     fontSize: 15,
-    fontFamily: 'JosefinSans-Regular',
+    fontFamily: 'Lato-Regular',
   },
-
+  userListText3: {
+    fontSize: 15,
+    fontWeight: 'bold',
+  },
+  userListText4: {
+    fontSize: 15,
+    color: 'grey',
+    fontWeight: 'normal',
+  },
+  userListImage: {
+    width: 30,
+    height: 30,
+  },
+  myTicketSVCard: {
+    padding: 10,
+    marginLeft: 5,
+    borderRadius: 5,
+  },
+  myTicketSVCard2: {
+    padding: 10,
+    marginLeft: 5,
+    backgroundColor: '#3066be',
+    borderRadius: 5,
+  },
   myTicketCardHeader: {
     display: 'flex',
     padding: 20,
@@ -164,7 +220,8 @@ const styles = StyleSheet.create({
     flex: 15,
   },
   myTicketCardHeaderv2: {
-    flex: 5,
+    flex: 10,
+    marginRight: -20,
   },
   myTicketCard: {
     display: 'flex',
@@ -183,9 +240,14 @@ const styles = StyleSheet.create({
   myTicketCardView4: {
     flex: 2,
   },
+  myTicketCardTextx: {
+    fontSize: 15,
+    fontFamily: 'Lato-Regular',
+    fontWeight: 'bold',
+  },
   myTicketCardText: {
     fontSize: 15,
-    fontFamily: 'JosefinSans-Regular',
+    fontFamily: 'Lato-Regular',
   },
   myTicketCardView5: {
     flex: 1,
@@ -196,21 +258,70 @@ const styles = StyleSheet.create({
   },
 
   myTicketCardStatus: {
-    fontFamily: 'JosefinSans-Regular',
+    fontFamily: 'Lato-Regular',
     color: 'green',
   },
   myTicketCardStatus2: {
-    fontFamily: 'JosefinSans-Regular',
+    fontFamily: 'Lato-Regular',
     color: 'blue',
+  },
+  myTicketCardStatus3: {
+    fontFamily: 'Lato-Regular',
+    color: 'red',
   },
 
   textRec: {
-    fontFamily: 'JosefinSans-Regular',
+    fontFamily: 'Lato-Regular',
     color: 'white',
     position: 'absolute',
-    marginTop:5,
-    marginLeft:5,
-    fontSize:20
+    marginTop: 10,
+    marginLeft: 15,
+    fontSize: 15,
+    fontWeight: 'bold',
+  },
+  recCard: {
+    width: 200,
+    height: 150,
+    marginLeft: 5,
+    marginRight: 5,
+    marginBottom: 20,
+    borderRadius: 10,
+  },
+  promoCard: {
+    width: 250,
+    height: 150,
+    marginLeft: 5,
+    marginRight: 5,
+    marginBottom: 20,
+    borderRadius: 10,
+  },
+
+  searchCard: {
+    marginTop: -150,
+    padding: 20,
+  },
+  cardFormView: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  cardFormViewx1: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 10,
+  },
+  cardFormViewx2: {
+    flex: 7,
+  },
+  cardFormViewx3: {
+    flex: 0.1,
+    justifyContent: 'center',
+    padding: 10,
+  },
+  searchButton: {
+    justifyContent: 'center',
+    marginTop: 30,
+    borderRadius: 5,
+    backgroundColor: '#3066be',
   },
 });
 
